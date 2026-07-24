@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TwilightWalls</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<div id="fullscreen" class="fullscreen">
+
+    <span class="close" onclick="closeImage()">✖</span>
+
+    <img id="fullscreenImg" src="" alt="Wallpaper">
+
+</div>
+<body>
+  
+<header class="header">
+    <h1 id="title">🌙 TwilightWalls</h1>
+    <p>4K • AMOLED • AI Wallpapers</p>
+<small style="color:#777;">Version 1.0 • Built with ❤️</small>
+</header>
+
+<div class="search-box">
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="Search Wallpapers..."
+        onkeyup="searchWallpapers()">
+</div>
+
+<div class="categories">
+
+    <button id="carsBtn" onclick="showCategory('cars')">🚗 Cars</button>
+
+    <button id="natureBtn" onclick="showCategory('nature')">🌿 Nature</button>
+
+    <button id="animeBtn" onclick="showCategory('anime')">🎌 Anime</button>
+
+    <button id="spaceBtn" onclick="showCategory('space')">🌌 Space</button>
+
+    <button id="amoledBtn" onclick="showCategory('amoled')">🖤 AMOLED</button>
+
+</div>
+    
+
+<h2 class="section-title">Trending Wallpapers</h2>
+<div id="favoritesPage" style="display:none; padding:15px;">
+
+    <h2 style="color:#FFD700;">❤️ Favorite Wallpapers</h2>
+
+    <p id="noFavMessage" style="color:#888;">
+        No Favorite Wallpapers Yet
+    </p>
+
+    <div id="favoritesGallery"></div>
+
+</div>
+<div class="gallery">
+
+<div class="card cars">
+
+    <img src="images/bmw.jpg"
+         alt="BMW M4"
+         onclick="openImage('images/bmw.jpg')">
+
+    <h3>BMW M4</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/bmw.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card cars">
+
+    <img src="images/ferrari.jpg"
+         alt="Ferrari SF90"
+         onclick="openImage('images/ferrari.jpg')">
+
+    <h3>Ferrari SF90</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/ferrari.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card cars">
+
+    <img src="images/revuelto.jpg"
+         alt="Lamborghini Revuelto"
+         onclick="openImage('images/revuelto.jpg')">
+
+    <h3>Lamborghini Revuelto</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/revuelto.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card cars">
+
+    <img src="images/gt3rs.jpg"
+         alt="Porsche 911 GT3 RS"
+         onclick="openImage('images/gt3rs.jpg')">
+
+    <h3>Porsche 911 GT3 RS</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/gt3rs.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card cars">
+
+    <img src="images/gtr.jpg"
+         alt="Nissan GT-R R35"
+         onclick="openImage('images/gtr.jpg')">
+
+    <h3>Nissan GT-R R35</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/gtr.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card cars">
+
+    <img src="images/mclaren720s.jpg"
+         alt="McLaren 720S"
+         onclick="openImage('images/mclaren720s.jpg')">
+
+    <h3>McLaren 720S</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/mclaren720s.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card cars">
+
+    <img src="images/gwagon.jpg"
+         alt="Mercedes-AMG G63"
+         onclick="openImage('images/gwagon.jpg')">
+
+    <h3>Mercedes-AMG G63</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/gwagon.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+<div class="card cars">
+
+    <img src="images/bugatti.jpg"
+         alt="Bugatti Chiron"
+         onclick="openImage('images/bugatti.jpg')">
+
+    <h3>Bugatti Chiron</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/bugatti.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+<div class="card cars">
+
+    <img src="images/supra.jpg"
+         alt="Toyota Supra MK4"
+         onclick="openImage('images/supra.jpg')">
+
+    <h3>Toyota Supra MK4</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/supra.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+<div class="card cars">
+
+    <img src="images/mustang.jpg"
+         alt="Ford Mustang GT"
+         onclick="openImage('images/mustang.jpg')">
+
+    <h3>Ford Mustang GT</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/mustang.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+<div class="card nature">
+
+    <img src="images/forest.jpg"
+         alt="Forest"
+         onclick="openImage('images/forest.jpg')">
+
+    <h3>Forest</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/forest.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card nature">
+
+    <img src="images/ocean.jpg"
+         alt="Ocean"
+         onclick="openImage('images/ocean.jpg')">
+
+    <h3>Ocean</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/ocean.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card nature">
+
+    <img src="images/mountains.jpg"
+         alt="Mountains"
+         onclick="openImage('images/mountains.jpg')">
+
+    <h3>Mountains</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/mountains.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card nature">
+
+    <img src="images/sunset.jpg"
+         alt="Sunset"
+         onclick="openImage('images/sunset.jpg')">
+
+    <h3>Sunset</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/sunset.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card nature">
+
+    <img src="images/sakura.jpg"
+         alt="Sakura"
+         onclick="openImage('images/sakura.jpg')">
+
+    <h3>Sakura</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/sakura.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card nature">
+
+    <img src="images/snow.jpg"
+         alt="Snow"
+         onclick="openImage('images/snow.jpg')">
+
+    <h3>Snow</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/snow.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card nature">
+
+    <img src="images/aurora.jpg"
+         alt="Aurora"
+         onclick="openImage('images/aurora.jpg')">
+
+    <h3>Aurora</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/aurora.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+<div class="card nature">
+
+    <img src="images/waterfall.jpg"
+         alt="Waterfall Paradise"
+         onclick="openImage('images/waterfall.jpg')">
+
+    <h3>Waterfall Paradise</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/waterfall.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+<div class="card nature">
+
+    <img src="images/sunrise.jpg"
+         alt="Golden Sunrise"
+         onclick="openImage('images/sunrise.jpg')">
+
+    <h3>Golden Sunrise</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/sunrise.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+<div class="card nature">
+
+    <img src="images/river.jpg"
+         alt="Crystal River"
+         onclick="openImage('images/river.jpg')">
+
+    <h3>Crystal River</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/river.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+<div class="card anime">
+
+    <img src="images/anime1.jpg"
+         alt="Anime Wallpaper 1"
+         onclick="openImage('images/anime1.jpg')">
+
+    <h3>Anime Wallpaper 1</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime1.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime2.jpg"
+         alt="Anime Wallpaper 2"
+         onclick="openImage('images/anime2.jpg')">
+
+    <h3>Anime Wallpaper 2</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime2.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime3.jpg"
+         alt="Anime Wallpaper 3"
+         onclick="openImage('images/anime3.jpg')">
+
+    <h3>Anime Wallpaper 3</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime3.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime4.jpg"
+         alt="Anime Wallpaper 4"
+         onclick="openImage('images/anime4.jpg')">
+
+    <h3>Anime Wallpaper 4</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime4.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime5.jpg"
+         alt="Anime Wallpaper 5"
+         onclick="openImage('images/anime5.jpg')">
+
+    <h3>Anime Wallpaper 5</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime5.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime6.jpg"
+         alt="Anime Wallpaper 6"
+         onclick="openImage('images/anime6.jpg')">
+
+    <h3>Anime Wallpaper 6</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime6.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime7.jpg"
+         alt="Anime Wallpaper 7"
+         onclick="openImage('images/anime7.jpg')">
+
+    <h3>Anime Wallpaper 7</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime7.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime8.jpg"
+         alt="Anime Wallpaper 8"
+         onclick="openImage('images/anime8.jpg')">
+
+    <h3>Anime Wallpaper 8</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime8.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime9.jpg"
+         alt="Anime Wallpaper 9"
+         onclick="openImage('images/anime9.jpg')">
+
+    <h3>Anime Wallpaper 9</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime9.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card anime">
+
+    <img src="images/anime10.jpg"
+         alt="Anime Wallpaper 10"
+         onclick="openImage('images/anime10.jpg')">
+
+    <h3>Anime Wallpaper 10</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/anime10.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+</div>
+<div class="card space">
+
+    <img src="images/space1.jpg"
+         alt="Space Wallpaper 1"
+         onclick="openImage('images/space1.jpg')">
+
+    <h3>Space Wallpaper 1</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space1.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space2.jpg"
+         alt="Space Wallpaper 2"
+         onclick="openImage('images/space2.jpg')">
+
+    <h3>Space Wallpaper 2</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space2.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space3.jpg"
+         alt="Space Wallpaper 3"
+         onclick="openImage('images/space3.jpg')">
+
+    <h3>Space Wallpaper 3</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space3.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space4.jpg"
+         alt="Space Wallpaper 4"
+         onclick="openImage('images/space4.jpg')">
+
+    <h3>Space Wallpaper 4</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space4.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space5.jpg"
+         alt="Space Wallpaper 5"
+         onclick="openImage('images/space5.jpg')">
+
+    <h3>Space Wallpaper 5</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space5.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space6.jpg"
+         alt="Space Wallpaper 6"
+         onclick="openImage('images/space6.jpg')">
+
+    <h3>Space Wallpaper 6</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space6.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space7.jpg"
+         alt="Space Wallpaper 7"
+         onclick="openImage('images/space7.jpg')">
+
+    <h3>Space Wallpaper 7</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space7.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space8.jpg"
+         alt="Space Wallpaper 8"
+         onclick="openImage('images/space8.jpg')">
+
+    <h3>Space Wallpaper 8</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space8.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space9.jpg"
+         alt="Space Wallpaper 9"
+         onclick="openImage('images/space9.jpg')">
+
+    <h3>Space Wallpaper 9</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space9.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card space">
+
+    <img src="images/space10.jpg"
+         alt="Space Wallpaper 10"
+         onclick="openImage('images/space10.jpg')">
+
+    <h3>Space Wallpaper 10</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/space10.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled1.jpg"
+         alt="AMOLED Wallpaper 1"
+         onclick="openImage('images/amoled1.jpg')">
+
+    <h3>AMOLED Wallpaper 1</h3>
+
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+
+    <a href="images/amoled1.jpg" download onclick="downloadMessage()">
+        <button>⬇ Download</button>
+    </a>
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled2.jpg" alt="AMOLED Wallpaper 2" onclick="openImage('images/amoled2.jpg')">
+    <h3>AMOLED Wallpaper 2</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled2.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled3.jpg" alt="AMOLED Wallpaper 3" onclick="openImage('images/amoled3.jpg')">
+    <h3>AMOLED Wallpaper 3</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled3.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled4.jpg" alt="AMOLED Wallpaper 4" onclick="openImage('images/amoled4.jpg')">
+    <h3>AMOLED Wallpaper 4</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled4.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled5.jpg" alt="AMOLED Wallpaper 5" onclick="openImage('images/amoled5.jpg')">
+    <h3>AMOLED Wallpaper 5</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled5.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled6.jpg" alt="AMOLED Wallpaper 6" onclick="openImage('images/amoled6.jpg')">
+    <h3>AMOLED Wallpaper 6</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled6.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled7.jpg" alt="AMOLED Wallpaper 7" onclick="openImage('images/amoled7.jpg')">
+    <h3>AMOLED Wallpaper 7</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled7.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled8.jpg" alt="AMOLED Wallpaper 8" onclick="openImage('images/amoled8.jpg')">
+    <h3>AMOLED Wallpaper 8</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled8.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled9.jpg" alt="AMOLED Wallpaper 9" onclick="openImage('images/amoled9.jpg')">
+    <h3>AMOLED Wallpaper 9</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled9.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+<div class="card amoled">
+
+    <img src="images/amoled10.jpg" alt="AMOLED Wallpaper 10" onclick="openImage('images/amoled10.jpg')">
+    <h3>AMOLED Wallpaper 10</h3>
+    <button class="fav-btn" onclick="toggleFavorite(this)">🤍 Favorite</button>
+    <a href="images/amoled10.jpg" download onclick="downloadMessage()"><button>⬇ Download</button></a>
+
+</div>
+
+</div>
+
+<nav class="bottom-nav">
+
+    <button id="homeBtn" onclick="showHome()">🏠<br>Home</button>
+
+    <button id="favBtn" onclick="showFavorites()">❤️<br>Favorites</button>
+
+    <button id="downloadBtn" onclick="showDownloads()">
+📥<br>Downloads (0)
+</button>
+
+    <button id="settingsBtn" onclick="showSettings()">⚙️<br>Settings</button>
+
+</nav>
+<div id="fullscreen" class="fullscreen" onclick="closeImage()">
+
+    <span class="close" onclick="closeImage()">✖</span>
+
+    <img id="fullscreenImg"
+         src=""
+         alt="Wallpaper"
+         onclick="event.stopPropagation()">
+
+</div>
+<div id="settingsPopup" class="settings-popup">
+
+    <div class="settings-box">
+
+        <h2>⚙️ TwilightWalls</h2>
+
+        <p><strong>Version:</strong> 2.1</p>
+
+        <p>🖼 High Quality Wallpapers</p>
+
+        <p>📱 Made with ❤️ on Phone</p>
+
+        <p>👨‍💻 Developer: DEEPANSHU</p>
+
+        <button onclick="closeSettings()">Close</button>
+
+    </div>
+
+</div>
+<button id="topBtn" onclick="scrollToTop()">⬆️</button>
+<script src="script.js"></script>
+
+</body>
+</html>

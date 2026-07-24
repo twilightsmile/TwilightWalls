@@ -1,0 +1,285 @@
+// Current category
+let currentCategory = "cars";
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+// Category Change
+function showCategory(category){
+
+    currentCategory = category;
+
+    setActiveButton(category + "Btn");
+
+    // Title change
+    document.getElementById("title").innerHTML =
+    "🌙 " + category.charAt(0).toUpperCase() + category.slice(1) + " Wallpapers";
+
+    // Hide all cards
+    document.querySelectorAll(".card").forEach(card=>{
+        card.style.display="none";
+    });
+
+    // Show selected category
+    document.querySelectorAll("." + category).forEach(card=>{
+        card.style.display="block";
+    });
+
+}
+
+// Search
+
+
+// Default Category
+showCategory("cars");
+function showFavorites(){
+
+    currentCategory="favorites";
+
+    setActiveButton("favBtn");
+
+    document.getElementById("title").innerHTML="❤️ Favorites";
+
+    document.querySelector(".gallery").style.display = "none";
+document.getElementById("favoritesGallery").style.display = "grid";
+
+    document.getElementById("favoritesPage").style.display="block";
+
+    renderFavorites();
+    function showDownloads(){
+
+    setActiveButton("downloadBtn");
+
+    alert("Downloads feature coming soon 😅");
+
+}
+
+}
+function showSettings() {
+    document.getElementById("settingsPopup").style.display = "flex";
+}
+
+function closeSettings() {
+    document.getElementById("settingsPopup").style.display = "none";
+}
+function showHome(){
+
+    currentCategory = "home";
+
+    setActiveButton("homeBtn");
+
+    document.getElementById("title").innerHTML =
+    "🌙 TwilightWalls";
+
+    document.querySelectorAll(".card").forEach(card=>{
+        card.style.display="block";
+    });
+document.querySelector(".gallery").style.display="grid";
+document.getElementById("favoritesGallery").style.display = "none";
+
+document.getElementById("favoritesPage").style.display="none";
+}
+function openImage(src){
+    document.getElementById("fullscreen").style.display = "flex";
+    document.getElementById("fullscreenImg").src = src;
+}
+
+function closeImage(){
+    document.getElementById("fullscreen").style.display = "none";
+}
+let downloadCount = Number(localStorage.getItem("downloadCount")) || 0;
+
+function updateDownloadCount(){
+
+    let btn = document.getElementById("downloadBtn");
+
+    if(btn){
+
+        btn.innerHTML = "📥<br>Downloads (" + downloadCount + ")";
+
+    }
+
+}
+
+function updateDownloadCount(){
+
+    let btn = document.getElementById("downloadBtn");
+
+    if(btn){
+
+        
+
+}
+function setActiveButton(buttonId){
+
+    const buttons = [
+        "homeBtn",
+        "carsBtn",
+        "natureBtn",
+        "animeBtn",
+        "spaceBtn",
+        "amoledBtn",
+        "favBtn",
+        "downloadBtn",
+        "settingsBtn"
+    ];
+
+    buttons.forEach(id=>{
+        const btn=document.getElementById(id);
+
+        if(btn){
+            btn.classList.remove("active");
+        }
+    });
+
+    const active=document.getElementById(buttonId);
+
+    if(active){
+        active.classList.add("active");
+    }
+
+}
+
+function toggleFavorite(btn){
+
+    let card = btn.closest(".card");
+    let title = card.querySelector("h3").innerText;
+    let image = card.querySelector("img").getAttribute("src");
+
+    let index = favorites.findIndex(item => item.title === title);
+
+    if(index !== -1){
+
+        favorites.splice(index,1);
+
+        btn.classList.remove("active");
+        btn.innerHTML="🤍 Favorite";
+
+    }else{
+
+        favorites.push({
+            title:title,
+            image:image
+        });
+
+        btn.classList.add("active");
+        btn.innerHTML="❤️ Favorite";
+
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    
+renderFavorites();
+}
+
+function searchWallpapers(){
+
+    let input = document.getElementById("searchBox").value.toLowerCase();
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+
+        let title = card.querySelector("h3");
+
+        if(title){
+
+            if(title.innerHTML.toLowerCase().includes(input)){
+                card.style.display="block";
+            }else{
+                card.style.display="none";
+            }
+
+        }
+
+    });
+
+}
+function renderFavorites(){
+
+    let gallery = document.getElementById("favoritesGallery");
+
+    let message = document.getElementById("noFavMessage");
+
+    gallery.innerHTML="";
+
+    if(favorites.length===0){
+
+        message.style.display="block";
+
+        return;
+
+    }
+
+    message.style.display="none";
+
+    favorites.forEach(item=>{
+
+        gallery.innerHTML += `
+
+        <div class="card">
+
+            <img src="${item.image}"
+                 onclick="openImage('${item.image}')">
+
+            <h3>${item.title}</h3>
+
+            <button class="fav-btn active"
+            onclick="removeFavorite('${item.title}')">
+
+            ❤️ Remove
+
+            </button>
+
+            <a href="${item.image}" download>
+
+                <button>⬇ Download</button>
+
+            </a>
+
+        </div>
+
+        `;
+
+    });
+
+}
+function removeFavorite(title){
+
+    favorites = favorites.filter(item=>item.title!==title);
+
+    localStorage.setItem("favorites",JSON.stringify(favorites));
+
+    renderFavorites();
+
+}
+document.querySelectorAll(".card img").forEach(img=>{
+
+    img.setAttribute("loading","lazy");
+
+});
+window.onscroll = function(){
+
+    let btn = document.getElementById("topBtn");
+
+    if(document.documentElement.scrollTop > 300){
+
+        btn.style.display = "block";
+
+    }else{
+
+        btn.style.display = "none";
+
+    }
+
+}
+
+function scrollToTop(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
