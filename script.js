@@ -275,3 +275,4 @@ function scrollToTop(){
     });
 
 }
+console.log("SCRIPT LOADED SUCCESSFULLY");
