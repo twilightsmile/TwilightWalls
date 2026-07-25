@@ -99,15 +99,7 @@ function updateDownloadCount(){
 
 }
 
-function updateDownloadCount(){
 
-    let btn = document.getElementById("downloadBtn");
-
-    if(btn){
-
-        
-
-}
 function setActiveButton(buttonId){
 
     const buttons = [
